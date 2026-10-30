@@ -25,7 +25,6 @@ form.addEventListener('submit',async e=>{
    await fetch(CONFIG.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(order),redirect:'follow'});
    status.textContent='تم إرسال الطلب. سنتواصل معك لتأكيد بيانات التوصيل قبل الشحن.';
    form.reset();updateSummary();
-   trackSnap('PURCHASE',{item_ids:[CONFIG.sku],item_category:'Personal Care',number_items:offer.quantity,price:offer.price,currency:CONFIG.currency,transaction_id:transactionId});
  }catch(err){
    console.error('Order submission failed',err);
    status.textContent='تعذّر إرسال الطلب بسبب الاتصال. يرجى المحاولة مرة أخرى.';
